@@ -68,7 +68,7 @@ angular.module('app',[])
                     $scope.showFlag = true;
                     $scope.$apply();
                 }, 1000);
-            }else if(stage >= 6) {
+            }else if(stage === 6) {
                 writeLog("finish");
                 $scope.showFlag = false;
                 setTimeout(function() {
@@ -101,9 +101,15 @@ angular.module('app',[])
             // do Action here
             $scope.currentStage += 1;
             $scope.$apply();
+
+            var delay = 3000;
+            if($scope.currentStage === 2) {
+                delay = 1500;
+            }
+
             setTimeout(function() {
                 readyFlag = false; 
-            },3000);
+            },delay);
         };
 
         function writeLog(stage) {
