@@ -72,7 +72,9 @@ angular.module('app',[])
                 writeLog("finish");
                 $scope.showFlag = false;
                 setTimeout(function() {
+                    $scope.showFlag = true;
                     removeClass(canvas, "show");
+                    $scope.$apply();
                 }, 1000);
             }
         });

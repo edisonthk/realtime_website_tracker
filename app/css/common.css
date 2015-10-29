@@ -4,7 +4,7 @@ html, body,.click-panel {
     min-height: 100%;
     font-family: 'Pathway Gothic One', "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3","Osaka","ＭＳ ゴシック", sans-serif;
 }
-
+* { -webkit-tap-highlight-color:rgba(0,0,0,0); }
 canvas {
     position: absolute;
     top: 0;
@@ -17,6 +17,13 @@ canvas {
 p {
     padding: 0;
     margin: 0;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
 }
 
 .click-panel {
