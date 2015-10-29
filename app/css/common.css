@@ -5,13 +5,14 @@ html, body,.click-panel {
     font-family: 'Pathway Gothic One', "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3","Osaka","ＭＳ ゴシック", sans-serif;
 }
 
-canvas {
+#canvas {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+
+    background-image: url(/app/img/bg1.jpg);
+    background-size: cover;
 }
 
 p {

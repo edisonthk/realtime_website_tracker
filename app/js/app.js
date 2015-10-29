@@ -15,29 +15,38 @@ angular.module('app',[])
         canvas.height = fullHeight;
 
 
-        var ctx = canvas.getContext('2d'),
+        // var ctx = canvas.getContext('2d'),
             // opacity
-            alpha = 0,   // current alpha value
+        var alpha = 0,   // current alpha value
             delta = 0.1, // delta = speed
 
             // flag
             readyFlag = false,
-            wp = new WaterRipple(ctx, fullWidth, fullHeight)
+            // wp = new WaterRipple(ctx, fullWidth, fullHeight)
+
+            $canvas = $('#canvas')
         ;
 
 
         // background
-        var img = new Image();
-        img.src="app/img/bg1.jpg";
-        img.onload = function() {
-            drawBackground();
-            setTimeout(function() {
-                $scope.currentStage += 1;
-                $scope.$apply();
-                writeLog("begin");
-                wp.start();
-            }, 1000);
-        };
+
+        try {
+            $canvas.ripples({
+                resolution: 512,
+                dropRadius: 20, //px
+                perturbance: 0.04,
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+        
+        setTimeout(function() {
+            $scope.currentStage += 1;
+            $scope.$apply();
+            writeLog("begin");
+        }, 1000);
+    
 
         $scope.panelClick = function(evt) {
 
@@ -45,7 +54,8 @@ angular.module('app',[])
                 y = evt.offsetTop || evt.layerY
             ;
 
-            wp.disturb(fullWidth - Math.floor(x),fullHeight - Math.floor(y), 15000);
+            $canvas.ripples("drop", x, y, 10, 0.3);
+            // wp.disturb(fullWidth - Math.floor(x),fullHeight - Math.floor(y), 15000);
         }
 
         $scope.$watch("currentStage", function(stage) {
@@ -127,22 +137,6 @@ angular.module('app',[])
         function removeClass(el, className) {
             var regex = new RegExp("\s?"+className,"g");
             el.className = el.className.replace(regex,"");
-        }
-
-        function fadeIn() {
-            if(alpha >= 1) {
-                return;
-            }
-
-            alpha += delta;
-
-            /// clear canvas, set alpha and re-draw image
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = alpha;
-            
-            drawBackground();
-
-            setTimeout(fadeIn, 32);
         }
 
     }]);
