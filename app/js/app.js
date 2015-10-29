@@ -105,7 +105,11 @@ angular.module('app',[])
         };
 
         function writeLog(stage) {
-            H.get('/writelog.php?q='+stage);
+            H({
+                url: '/writelog.php?q='+stage,
+                method: 'GET',
+                async: false,
+            });
         }
 
         function drawBackground() {
