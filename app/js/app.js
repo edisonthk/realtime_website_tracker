@@ -54,7 +54,7 @@ angular.module('app',[])
                 y = evt.offsetTop || evt.layerY
             ;
 
-            $canvas.ripples("drop", x, y, 10, 0.3);
+            $canvas.ripples("drop", x, y, 12, 0.3);
             // wp.disturb(fullWidth - Math.floor(x),fullHeight - Math.floor(y), 15000);
         }
 

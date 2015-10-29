@@ -5,6 +5,8 @@ html, body,.click-panel {
     font-family: 'Pathway Gothic One', "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3","Osaka","ＭＳ ゴシック", sans-serif;
 }
 
+* { -webkit-tap-highlight-color:rgba(0,0,0,0); }
+
 #canvas {
     position: absolute;
     top: 0;
