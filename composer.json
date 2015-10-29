@@ -1,0 +1,12 @@
+{
+    "name": "edisonthk/email_tracker",
+    "require": {
+        "swiftmailer/swiftmailer": "5.1"
+    },
+    "authors": [
+        {
+            "name": "edisonthk-mac",
+            "email": "edisonthk@gmail.com"
+        }
+    ]
+}

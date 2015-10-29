@@ -1,0 +1,59 @@
+html, body,.click-panel {
+    min-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Pathway Gothic One', "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3","Osaka","ＭＳ ゴシック", sans-serif;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.click-panel {
+    position: absolute;
+    z-index: 3;
+}
+
+.oa {
+    opacity: 0;
+            transition: opacity 1s ease;
+         -o-transition: opacity 1s ease;
+       -moz-transition: opacity 1s ease;
+    -webkit-transition: opacity 1s ease;
+}
+.oa.show {
+    opacity: 1;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    width: calc(100% - 40px);
+
+    z-index: 1;
+
+    text-align: center;
+    font-size: 23px;
+    line-height: 2;
+
+    color: #565656;
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {  
+    .container {
+        font-size: 16px;
+    }
+}

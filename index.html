@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>My AngularJS</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=no">
+
+        <link rel="stylesheet" type="text/css" href="bower_components/normalize.css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="app/css/common.css">
+
+    </head>
+    <body ng-controller="MyController">
+        
+        <div class="click-panel" ng-click="panelClick($event)"></div>
+
+        <ng-include src="'app/html/page.html'" onload="pageOnload()"></ng-include>
+
+        <canvas class="oa" id="canvas" width="600" height="600"></canvas>
+
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="app/js/blur.js"></script>
+        <script type="text/javascript" src="app/js/waterripple.js"></script>
+        <script type="text/javascript" src="app/js/app.js"></script>
+    </body>
+</html>
