@@ -1,7 +1,7 @@
 angular.module('app',[])
-    .controller('MyController', ['$scope', function($scope){
+    .controller('MyController', ['$scope', '$http',function($scope, H){
 
-        $scope.currentStage = 2;
+        $scope.currentStage = 0;
         $scope.showFlag = false;
 
         var fullHeight = window.innerHeight+60,
@@ -34,7 +34,7 @@ angular.module('app',[])
             setTimeout(function() {
                 $scope.currentStage += 1;
                 $scope.$apply();
-
+                writeLog("begin");
                 wp.start();
             }, 1000);
         };
@@ -49,8 +49,9 @@ angular.module('app',[])
         }
 
         $scope.$watch("currentStage", function(stage) {
-            console.log(stage);
+            
             if(stage === 2) {
+                writeLog(stage);
                 $scope.showFlag = false;
 
                 setTimeout(function() {
@@ -61,12 +62,14 @@ angular.module('app',[])
                     }, 1000);
                 }, 1000);
             }else if(stage >= 3 && stage < 6) {
+                writeLog(stage);
                 $scope.showFlag = false;
                 setTimeout(function() {
                     $scope.showFlag = true;
                     $scope.$apply();
                 }, 1000);
             }else if(stage >= 6) {
+                writeLog("finish");
                 $scope.showFlag = false;
                 setTimeout(function() {
                     removeClass(canvas, "show");
@@ -79,8 +82,8 @@ angular.module('app',[])
             var els = document.getElementsByClassName("container");
             for (var i = 0; i < els.length; i++) {
                 els[i].style.top = ((window.innerHeight - els[i].clientHeight) / 2 ) + "px";
-            };
-        };
+            }
+        }
 
 
         document.body.onclick= function() {
@@ -96,6 +99,10 @@ angular.module('app',[])
                 readyFlag = false; 
             },3000);
         };
+
+        function writeLog(stage) {
+            H.get('/writelog.php?q='+stage);
+        }
 
         function drawBackground() {
             ctx.drawImage(img, 0,0,canvas.width, canvas.height);
