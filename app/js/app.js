@@ -77,7 +77,7 @@ angular.module('app',[])
             }
         });
 
-        window.onclose = function() {
+        window.onbeforeunload = function() {
             writeLog("close at stage "+$scope.currentStage);
         };
 

@@ -1,7 +1,8 @@
 {
     "name": "edisonthk/email_tracker",
     "require": {
-        "swiftmailer/swiftmailer": "5.1"
+        "swiftmailer/swiftmailer": "5.1",
+        "ua-parser/uap-php": "~3.4.4"
     },
     "authors": [
         {
