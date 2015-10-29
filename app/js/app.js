@@ -77,6 +77,10 @@ angular.module('app',[])
             }
         });
 
+        window.onclose = function() {
+            writeLog("close at stage "+$scope.currentStage);
+        };
+
         $scope.pageOnload = function() {
             // vertical center of every container
             var els = document.getElementsByClassName("container");
