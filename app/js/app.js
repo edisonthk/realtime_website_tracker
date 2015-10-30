@@ -1,7 +1,7 @@
 angular.module('app',[])
     .controller('MyController', ['$scope', '$http',function($scope, H){
 
-        $scope.currentStage = 0;
+        $scope.currentStage = 6;
         $scope.showFlag = false;
 
         var fullHeight = window.innerHeight+60,
@@ -78,11 +78,13 @@ angular.module('app',[])
                     $scope.showFlag = true;
                     $scope.$apply();
                 }, 1000);
-            }else if(stage >= 6) {
+            }else if(stage === 6) {
                 writeLog("finish");
                 $scope.showFlag = false;
                 setTimeout(function() {
+                    $scope.showFlag = true;
                     removeClass(canvas, "show");
+                    $scope.$apply();
                 }, 1000);
             }
         });
@@ -101,7 +103,7 @@ angular.module('app',[])
 
 
         document.body.onclick= function() {
-            if(readyFlag) {
+            if(readyFlag || $scope.currentStage >= 6) {
                 return;
             }
             readyFlag = true;
@@ -109,9 +111,15 @@ angular.module('app',[])
             // do Action here
             $scope.currentStage += 1;
             $scope.$apply();
+
+            var delay = 3000;
+            if($scope.currentStage === 3) {
+                delay = 1500;
+            }
+
             setTimeout(function() {
                 readyFlag = false; 
-            },3000);
+            },delay);
         };
 
         function writeLog(stage) {
