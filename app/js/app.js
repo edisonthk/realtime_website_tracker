@@ -32,9 +32,9 @@ angular.module('app',[])
 
         try {
             $canvas.ripples({
-                resolution: 512,
-                dropRadius: 20, //px
-                perturbance: 0.04,
+                resolution: 1024,
+                dropRadius: 4, //px
+                perturbance: 0.001,
             });
         }
         catch (e) {
@@ -54,7 +54,7 @@ angular.module('app',[])
                 y = evt.offsetTop || evt.layerY
             ;
 
-            $canvas.ripples("drop", x, y, 12, 0.3);
+            $canvas.ripples("drop", x, y, 12, 0.13);
             // wp.disturb(fullWidth - Math.floor(x),fullHeight - Math.floor(y), 15000);
         }
 
