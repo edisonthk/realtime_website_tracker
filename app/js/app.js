@@ -1,7 +1,7 @@
 angular.module('app',[])
     .controller('MyController', ['$scope', '$http',function($scope, H){
 
-        $scope.currentStage = 6;
+        $scope.currentStage = 0;
         $scope.showFlag = false;
 
         var fullHeight = window.innerHeight+60,
